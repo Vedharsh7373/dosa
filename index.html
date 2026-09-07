@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -311,12 +312,6 @@
     box-shadow: 0 8px 40px rgba(232,115,10,0.15);
   }
 
-  .product-card.coming-soon {
-    background: linear-gradient(150deg, #F0F6E8, #E4EDD8, #D8E4C8);
-    border: 1.5px dashed rgba(45,80,22,0.3);
-    opacity: 0.92;
-  }
-
   .card-badge {
     display: inline-flex; align-items: center; gap: 5px;
     font-size: 0.72rem; font-weight: 700;
@@ -325,7 +320,6 @@
     margin-bottom: 20px;
   }
   .card-badge.available { background: rgba(232,115,10,0.15); color: var(--saffron-dark); }
-  .card-badge.soon { background: rgba(45,80,22,0.12); color: var(--forest); }
 
   .card-emoji { font-size: 3.2rem; margin-bottom: 14px; display: block; }
 
@@ -347,17 +341,6 @@
     background: rgba(255,255,255,0.6);
     color: var(--charcoal);
     border: 1px solid rgba(0,0,0,0.08);
-  }
-
-  .coming-soon-ribbon {
-    position: absolute;
-    top: 22px; right: -28px;
-    background: var(--forest);
-    color: white;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 5px 36px;
-    transform: rotate(35deg);
   }
 
   /* ── WHY US ── */
@@ -639,19 +622,18 @@
       <div class="card-badge available">✦ Available Now</div>
       <span class="card-emoji">🫙</span>
       <div class="card-title">Rice Idly–Dosa Batter</div>
-      <p class="card-desc">The classic! Our signature batter is made with premium whole urad dal and idly rice, soaked overnight, stone-ground, and perfectly fermented to give you restaurant-quality results at home.</p>
+      <p class="card-desc">The classic! Our signature batter is made with premium whole urad dal and idly rice, soaked overnight, freshly ground, and perfectly fermented to give you restaurant-quality results at home.</p>
       <div class="card-tags">
         <span class="tag">Urad Dal</span>
         <span class="tag">Idly Rice</span>
         <span class="tag">Fermented</span>
-        <span class="tag">Stone Ground</span>
+        <span class="tag">Freshly Ground</span>
       </div>
     </div>
 
     <!-- Ragi -->
-    <div class="product-card coming-soon">
-      <div class="coming-soon-ribbon">Coming Soon</div>
-      <div class="card-badge soon">🌱 Coming Soon</div>
+    <div class="product-card featured">
+      <div class="card-badge available">✦ Available Now</div>
       <span class="card-emoji">🌾</span>
       <div class="card-title">Ragi Idly–Dosa Batter</div>
       <p class="card-desc">Finger millet power in every bite! Nutritious ragi batter for guilt-free dosas packed with calcium and iron — perfect for health-conscious families.</p>
@@ -663,9 +645,8 @@
     </div>
 
     <!-- Jowar -->
-    <div class="product-card coming-soon">
-      <div class="coming-soon-ribbon">Coming Soon</div>
-      <div class="card-badge soon">🌱 Coming Soon</div>
+    <div class="product-card featured">
+      <div class="card-badge available">✦ Available Now</div>
       <span class="card-emoji">🌽</span>
       <div class="card-title">Jowar Idly–Dosa Batter</div>
       <p class="card-desc">Sorghum-based batter for crispy, light dosas. A diabetic-friendly option rich in fibre — traditional grain, modern wellness.</p>
@@ -675,6 +656,7 @@
         <span class="tag">High Fibre</span>
       </div>
     </div>
+  </div>
 </section>
 
 <!-- WHY US -->
@@ -692,7 +674,7 @@
       </div>
       <div class="why-card">
         <div class="why-icon">🪨</div>
-        <div class="why-title">Stone-Ground</div>
+        <div class="why-title">Freshly Ground</div>
         <p class="why-desc">Traditional wet grinding retains the natural nutrients and gives batter that perfect fluffy texture.</p>
       </div>
       <div class="why-card">
@@ -744,7 +726,7 @@
           <div class="step-num">3</div>
           <div class="step-content">
             <div class="step-title">Fresh Delivery to Your Door</div>
-            <p class="step-desc">Receive your batter sealed and chilled, ready to make the perfect idly or dosa.</p>
+            <p class="step-desc">Receive your batter perfectly fermented and chilled, ready to make the perfect idly or dosa.</p>
           </div>
         </div>
         <div class="step">
