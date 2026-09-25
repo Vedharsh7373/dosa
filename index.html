@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title> Batter Box — Fresh, Pure & Traditional</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -45,11 +44,13 @@
   }
 
   .nav-logo {
+    display: flex; align-items: center; gap: 10px;
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem; font-weight: 900;
     color: var(--saffron-dark);
     letter-spacing: -0.02em;
   }
+  .nav-logo img { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; }
   .nav-logo span { color: var(--forest); }
 
   .nav-cta {
@@ -195,60 +196,294 @@
 
   /* ── HERO VISUAL ── */
   .hero-visual {
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: fadeIn 0.8s 0.2s ease both;
     position: relative;
+    min-height: 520px;
   }
 
-  .batter-bowl {
-    width: 380px; height: 380px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #FFF0D8, #FFD89B, #F4A44C);
-    display: flex; align-items: center; justify-content: center;
+  .food-scene {
+    width: min(100%, 520px);
+    height: 500px;
     position: relative;
-    box-shadow:
-      0 30px 80px rgba(232,115,10,0.2),
-      inset 0 -20px 40px rgba(184,88,8,0.15);
-  } 
-
-  .batter-inner {
-    width: 300px; height: 300px; border-radius: 50%;
-    background: linear-gradient(160deg, #FFEFC8, #F4D08A);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: inset 0 8px 32px rgba(184,88,8,0.2);
+    border-radius: 36px;
+    background: linear-gradient(145deg, var(--warm-white), #FFF3D9);
+    border: 1px solid rgba(200,144,42,0.2);
+    box-shadow: 0 28px 70px rgba(42,33,24,0.13);
     overflow: hidden;
-    position: relative;
   }
 
-  .batter-text-center {
-    text-align: center; z-index: 2;
-  }
-  .batter-emoji {
-    font-size: 4.5rem;
-    display: block;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-  }
-  .batter-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700;
-    color: var(--saffron-dark);
-  }
-
-  .float-badge {
+  .food-scene::before {
+    content: '';
     position: absolute;
-    background: white;
-    border-radius: 16px;
-    padding: 10px 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    font-size: 0.82rem; font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
-    animation: floatY 3s ease-in-out infinite;
+    width: 300px;
+    height: 300px;
+    top: -110px;
+    right: -80px;
+    border-radius: 50%;
+    background: rgba(232,115,10,0.1);
   }
-  .float-badge.badge-1 { top: 40px; right: 10px; color: var(--forest); animation-delay: 0s; }
-  .float-badge.badge-2 { bottom: 60px; left: 0; color: var(--saffron-dark); animation-delay: 1.5s; }
-  .float-badge.badge-3 { top: 120px; left: -20px; color: #8B4513; animation-delay: 0.8s; }
-  .badge-icon { font-size: 1.2rem; }
+
+  .food-scene::after {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 180px;
+    bottom: -110px;
+    left: -80px;
+    border-radius: 50%;
+    background: rgba(45,80,22,0.08);
+  }
+
+  .scene-kicker {
+    position: absolute;
+    top: 24px;
+    left: 26px;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.8);
+    color: var(--forest);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 22px rgba(42,33,24,0.08);
+  }
+
+  .scene-kicker span { color: var(--saffron); }
+
+  .batter-tub {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 160px;
+    width: 220px;
+    height: 190px;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 18px 18px rgba(42,33,24,0.18));
+  }
+
+  .tub-lid {
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 236px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, var(--forest-light), var(--forest));
+    border: 5px solid var(--warm-white);
+    box-shadow: 0 6px 0 rgba(45,80,22,0.25);
+    z-index: 3;
+  }
+
+  .tub-batter {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 184px;
+    height: 54px;
+    border-radius: 50%;
+    background: #FFFDF5;
+    box-shadow: inset 0 -8px 14px rgba(200,144,42,0.12);
+    z-index: 4;
+  }
+
+  .batter-swirl {
+    position: absolute;
+    left: 45px;
+    top: 31px;
+    width: 90px;
+    height: 24px;
+    border: 3px solid rgba(200,144,42,0.24);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .tub-body {
+    position: absolute;
+    left: 10px;
+    top: 27px;
+    width: 200px;
+    height: 150px;
+    border-radius: 18px 18px 42px 42px;
+    background: linear-gradient(160deg, var(--forest-light), var(--forest));
+    overflow: hidden;
+  }
+
+  .tub-body::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 42px;
+    width: 160px;
+    height: 82px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.96);
+  }
+
+  .tub-brand {
+    position: absolute;
+    left: 31px;
+    top: 51px;
+    width: 138px;
+    text-align: center;
+    z-index: 2;
+    line-height: 0.95;
+  }
+
+  .tub-brand .fresh {
+    display: block;
+    color: var(--saffron);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .tub-brand .box {
+    display: block;
+    color: var(--forest);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.42rem;
+    font-weight: 900;
+  }
+
+  .tub-brand .type {
+    display: block;
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.48rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .idli-cluster {
+    position: absolute;
+    left: 42px;
+    bottom: 54px;
+    width: 155px;
+    height: 120px;
+    z-index: 3;
+    transform: rotate(-8deg);
+  }
+
+  .idli {
+    position: absolute;
+    width: 72px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 45% 35%, #FFFFFF, #F3E9D2 80%);
+    box-shadow: 0 10px 16px rgba(42,33,24,0.16);
+  }
+  .idli::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(200,144,42,0.2);
+    left: 25px;
+    top: 20px;
+    box-shadow: 18px 7px 0 rgba(200,144,42,0.16), 30px -5px 0 rgba(200,144,42,0.12);
+  }
+  .idli.i1 { left: 0; top: 35px; }
+  .idli.i2 { left: 42px; top: 0; transform: scale(1.02); }
+  .idli.i3 { left: 78px; top: 38px; transform: scale(0.92); }
+
+  .dosa {
+    position: absolute;
+    right: 18px;
+    bottom: 54px;
+    width: 210px;
+    height: 130px;
+    z-index: 2;
+    transform: rotate(7deg);
+  }
+
+  .dosa::before {
+    content: '';
+    position: absolute;
+    inset: 8px 0 0;
+    border-radius: 55% 45% 45% 55%;
+    background: linear-gradient(145deg, #F9B52E, var(--saffron), #D86609);
+    box-shadow: 0 16px 20px rgba(184,88,8,0.22);
+  }
+
+  .dosa::after {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 34px;
+    width: 150px;
+    height: 52px;
+    border-top: 3px solid rgba(255,244,205,0.55);
+    border-bottom: 3px solid rgba(255,244,205,0.32);
+    border-radius: 50%;
+    transform: rotate(-8deg);
+  }
+
+  .chutney {
+    position: absolute;
+    right: 38px;
+    top: 88px;
+    width: 74px;
+    height: 46px;
+    z-index: 3;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #F2F0DC, #D8D0AD);
+    box-shadow: 0 10px 20px rgba(42,33,24,0.13);
+  }
+  .chutney::after {
+    content: '';
+    position: absolute;
+    inset: 8px 7px;
+    border-radius: 50%;
+    background: var(--forest-light);
+  }
+
+  .sambar {
+    position: absolute;
+    left: 40px;
+    top: 92px;
+    width: 68px;
+    height: 43px;
+    z-index: 3;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #E6D7B7, #CBB58A);
+    box-shadow: 0 10px 20px rgba(42,33,24,0.13);
+  }
+  .sambar::after {
+    content: '';
+    position: absolute;
+    inset: 8px 7px;
+    border-radius: 50%;
+    background: var(--saffron);
+  }
+
+  .scene-caption {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 6;
+    white-space: nowrap;
+    color: var(--charcoal);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .scene-caption strong { color: var(--forest); }
 
   /* ── SECTION STYLES ── */
   section { padding: 90px 5%; }
@@ -533,13 +768,14 @@
       gap: 40px;
       padding: 100px 5% 50px;
     }
-    .hero-subtitle { max-width: 100%; }
+    .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; }
     .hero-trust { justify-content: center; flex-wrap: wrap; }
-    .batter-bowl { width: 280px; height: 280px; }
-    .batter-inner { width: 220px; height: 220px; }
-    .batter-emoji { font-size: 3rem; }
-    .float-badge { display: none; }
+    .food-scene { max-width: 390px; height: 430px; }
+    .batter-tub { top: 145px; transform: translateX(-50%) scale(0.88); }
+    .idli-cluster { left: 22px; bottom: 48px; transform: rotate(-8deg) scale(0.82); transform-origin: left bottom; }
+    .dosa { right: 0; bottom: 48px; transform: rotate(7deg) scale(0.78); transform-origin: right bottom; }
+    .scene-caption { font-size: 0.68rem; }
     .order-content { grid-template-columns: 1fr; gap: 40px; }
     .order-cta-box { padding: 36px 24px; }
   }
@@ -549,7 +785,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">fresh Batter<span>Box</span></div>
+  <div class="nav-logo"><img src="logo.png" alt="Batter Boxes logo">fresh Batter<span>Box</span></div>
   <a href="https://wa.me/917204593434?text=Hi!%20I'd%20like%20to%20order%20fresh%20batter%20please." class="nav-cta" target="_blank">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Order Now
@@ -588,22 +824,34 @@
   </div>
 
   <div class="hero-visual">
-    <div class="batter-bowl">
-      <div class="batter-inner">
-        <div class="batter-text-center">
-          <span class="batter-emoji"><img src="logo.png" alt="Batter Box logo" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;"></span>
-          <div class="batter-label">Fresh Batter</div>
+    <div class="food-scene">
+      <div class="scene-kicker"><span>✦</span> Fresh every day</div>
+
+      <div class="chutney"></div>
+      <div class="sambar"></div>
+
+      <div class="dosa"></div>
+
+      <div class="idli-cluster">
+        <div class="idli i1"></div>
+        <div class="idli i2"></div>
+        <div class="idli i3"></div>
+      </div>
+
+      <div class="batter-tub">
+        <div class="tub-lid"></div>
+        <div class="tub-batter"></div>
+        <div class="batter-swirl"></div>
+        <div class="tub-body">
+          <div class="tub-brand">
+            <span class="fresh">fresh</span>
+            <span class="box">Batter Box</span>
+            <span class="type">Idli • Dosa Batter</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="float-badge badge-1">
-      <span class="badge-icon">✅</span> No preservatives
-    </div>
-    <div class="float-badge badge-2">
-      <span class="badge-icon">⏰</span> Made fresh daily
-    </div>
-    <div class="float-badge badge-3">
-      <span class="badge-icon">🌿</span> 100% natural
+
+      <div class="scene-caption"><strong>Fresh batter</strong> → fluffy idlis + crispy dosas</div>
     </div>
   </div>
 </section>
@@ -620,7 +868,7 @@
     <!-- Featured Product -->
     <div class="product-card featured" style="grid-column: span 1;">
       <div class="card-badge available">✦ Available Now</div>
-      <span class="card-emoji"><img src="logo.png" alt="Batter Box logo" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;"></span>
+      <span class="card-emoji">🌾</span>
       <div class="card-title">Rice Idly–Dosa Batter</div>
       <p class="card-desc">The classic! Our signature batter is made with premium whole urad dal and idly rice, soaked overnight, freshly ground, and perfectly fermented to give you restaurant-quality results at home.</p>
       <div class="card-tags">
@@ -765,7 +1013,7 @@
     </div>
 
     <div class="order-cta-box">
-      <span class="order-emoji"><img src="logo.png" alt="Batter Box logo" style="width:1em;height:1em;object-fit:contain;vertical-align:middle;"></span>
+      <span class="order-emoji">🥣</span>
       <div class="order-cta-title">Ready to Order Fresh Batter?</div>
       <p class="order-cta-sub">Tap the button below to open WhatsApp and place your order directly. We respond within minutes!</p>
       <a href="https://wa.me/917204593434?text=Hi!%20I'd%20like%20to%20order%20fresh%20idly-dosa%20batter.%20Could%20you%20please%20share%20the%20available%20sizes%20and%20pricing%3F%20Thank%20you!" class="whatsapp-big" target="_blank">
